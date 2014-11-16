@@ -1,0 +1,12 @@
+<div class="row well">
+    <strong>
+        <span ng-repeat="letter in ctrl.userFound track by $index">
+            {{ letter == "" ? "_" : letter }}
+        </span>
+    </strong>
+</div>
+
+<div class="row">
+  <div class"btn-group">
+      <button class="btn btn-default" ng-repeat="letter in ctrl.alphabet" ng-click="ctrl.testLetter(letter)">{{ letter }}</button>
+</div>
