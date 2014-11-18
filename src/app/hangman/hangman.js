@@ -26,8 +26,7 @@ angular.module( 'ngBoilerplate.hangman', [
     }
 
     //generate this with angular.each("text", function(letter) { hidden.push(letter.charCodeAt(0)); });
-    var hidden = [];
-
+    var hidden = [115, 111, 108, 97, 108];
     ctrl.userFound = [];
     for (i = 0; i < hidden.length; i++) {
         ctrl.userFound.push("");
@@ -41,12 +40,12 @@ angular.module( 'ngBoilerplate.hangman', [
             ctrl.userFound[hiddenIndex] = letter;
             // console.log('yay');
         } else {
-            // console.log('nope');
+             // console.log('nope');
         }
     };
 
-    ctrl.birthdate = "";
-    ctrl.subtext = "";
+    ctrl.birthdate = "21 novembre 2014";
+    ctrl.subtext = "3,055Kg - 49cm";
     ctrl.pictureProportion = 1024/793;
 })
 
