@@ -25,10 +25,10 @@ angular.module( 'ngBoilerplate.hangman', [
         ctrl.alphabet.push(String.fromCharCode(i));
     }
 
+    //generate this with angular.each("text", function(letter) { hidden.push(letter.charCodeAt(0)); });
     var hidden = [];
 
     ctrl.userFound = [];
-
     for (i = 0; i < hidden.length; i++) {
         ctrl.userFound.push("");
     }
@@ -39,9 +39,36 @@ angular.module( 'ngBoilerplate.hangman', [
         var hiddenIndex = hidden.indexOf(letter.charCodeAt(0), fromIndex);
         if (hiddenIndex !== -1) {
             ctrl.userFound[hiddenIndex] = letter;
-            console.log('yay');
+            // console.log('yay');
         } else {
-            console.log('nope');
+            // console.log('nope');
+        }
+    };
+
+    ctrl.birthdate = "";
+    ctrl.subtext = "";
+    ctrl.pictureProportion = 1024/793;
+})
+
+.directive('fpSmartSize', function fpSmartSize($window) {
+    return {
+        restrict: "A",
+        scope: {
+            pictureProportion: "=fpSmartSize"
+        },
+        link: function(scope, elem, attrs, ctrl) {
+            scope.window = $window;
+
+            scope.$watch('window.innerWidth', function(newWidth) {
+                var width = newWidth;
+                var height = newWidth / scope.pictureProportion;
+                var footerAndKeyboard = 128 + 100;
+                if ( height + footerAndKeyboard > $window.innerHeight) {
+                    height = $window.innerHeight - 130;
+                    width = height * scope.pictureProportion;
+                }
+                attrs.$set("style", "width: " + width + "px; height: " + height + "px;");
+            });
         }
     };
 })

@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'calligraffitiregular';
+    src: url('calligraffiti_regular/Calligraffiti-webfont.eot');
+    src: url('calligraffiti_regular/Calligraffiti-webfont.eot?#iefix') format('embedded-opentype'),
+         url('calligraffiti_regular/Calligraffiti-webfont.woff') format('woff'),
+         url('calligraffiti_regular/Calligraffiti-webfont.ttf') format('truetype'),
+         url('calligraffiti_regular/Calligraffiti-webfont.svg#calligraffitiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.hangman {
+    position: relative;
+
+    .picture {
+        background-image: url('faire-part.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+
+        .tile {
+            background-color: white;
+            border-left: 1px solid #eee;
+            display: inline-block;
+            height: 100%;
+            transition: 0.5s linear all;
+
+            &:first-child {
+                border: none;
+            }
+
+            &.found {
+                background-color: transparent;
+                border: none;
+            }
+        }
+    }
+
+    .texts {
+        font-size: 1.2em;
+        font-family: calligraffitiregular;
+        position: absolute;
+        margin: 2em;
+        color: #FFF;
+        bottom: 10em;
+        background-color: rgba(50, 50, 50, 0.50);
+
+        strong {
+            font-size: 1.6em;
+
+            span:first-child {
+                text-transform: uppercase;
+            }
+        }
+    }
+}

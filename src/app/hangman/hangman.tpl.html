@@ -1,12 +1,30 @@
-<div class="row well">
-    <strong>
-        <span ng-repeat="letter in ctrl.userFound track by $index">
-            {{ letter == "" ? "_" : letter }}
-        </span>
-    </strong>
-</div>
+<div class="row hangman">
 
-<div class="row">
-  <div class"btn-group">
-      <button class="btn btn-default" ng-repeat="letter in ctrl.alphabet" ng-click="ctrl.testLetter(letter)">{{ letter }}</button>
+    <div class="picture" fp-smart-size="ctrl.pictureProportion">
+        <div class="tile"
+            ng-repeat="letter in ctrl.userFound track by $index"
+            ng-style="{ width: 100/ctrl.userFound.length + '%' }"
+            ng-class="{ found: letter !== '' }">
+        </div>
+
+        <div class="texts panel panel-default">
+            <div class="panel-body">
+                <p>
+                    <strong>
+                        <span ng-repeat="letter in ctrl.userFound track by $index">
+                            {{ letter == "" ? "_" : letter }}
+                        </span>
+                    </strong>
+                    n&eacute; le {{ ctrl.birthdate }}
+                </p>
+                <p><small>{{ ctrl.subtext }}</small></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="well">
+        <div class="btn-group">
+            <button class="btn btn-default" ng-repeat="letter in ctrl.alphabet" ng-click="ctrl.testLetter(letter)">{{ letter }}</button>
+        </div>
+    </div>
 </div>
